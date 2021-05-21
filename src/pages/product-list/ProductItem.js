@@ -1,12 +1,12 @@
 import * as React from 'react';
-import { StyleSheet, Image, Text, View } from 'react-native';
+import { StyleSheet, Image, Text, View, TouchableOpacity } from 'react-native';
 
-function ProductItem({ product }) {
+function ProductItem({ product, onPress }) {
   return (
-    <View style={styles.container}>
+    <TouchableOpacity style={styles.container} onPress={onPress}>
       <Text style={styles.name}>{product.name}</Text>
       <Image style={styles.image} source={product.imageSrc} />
-    </View>
+    </TouchableOpacity>
   );
 }
 

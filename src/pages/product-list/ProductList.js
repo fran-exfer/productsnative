@@ -5,7 +5,7 @@ import Grid from 'react-native-grid-component';
 import ProductsContext from '../../contexts/ProductsContext';
 import ProductItem from './ProductItem';
 
-function ProductList() {
+function ProductList({ navigation }) {
   const products = React.useContext(ProductsContext);
 
   return (
@@ -14,7 +14,17 @@ function ProductList() {
         style={styles.list}
         numColumns={2}
         data={products}
-        renderItem={(item, i) => <ProductItem key={i} product={item} />}
+        renderItem={(item, i) => (
+          <ProductItem
+            key={i}
+            product={item}
+            onPress={() =>
+              navigation.navigate('ProductDetails', {
+                product: item,
+              })
+            }
+          />
+        )}
       />
     </View>
   );
