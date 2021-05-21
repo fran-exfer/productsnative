@@ -1,21 +1,33 @@
 import * as React from 'react';
-import { Text, View } from 'react-native';
+import { StyleSheet, View } from 'react-native';
+import Grid from 'react-native-grid-component';
+
+import ProductsContext from '../../contexts/ProductsContext';
+import ProductItem from './ProductItem';
 
 function ProductList() {
+  const products = React.useContext(ProductsContext);
+
   return (
     <View style={styles.container}>
-      <Text>Product List</Text>
+      <Grid
+        style={styles.list}
+        numColumns={2}
+        data={products}
+        renderItem={(item, i) => <ProductItem key={i} product={item} />}
+      />
     </View>
   );
 }
 
-const styles = {
+const styles = StyleSheet.create({
   container: {
     flex: 1,
-    flexDirection: 'column',
-    justifyContent: 'center',
-    alignItems: 'center',
+    padding: 8,
   },
-};
+  list: {
+    flex: 1,
+  },
+});
 
 export default ProductList;
