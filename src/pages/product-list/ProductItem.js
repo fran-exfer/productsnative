@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { StyleSheet, Image, Text, View, TouchableOpacity } from 'react-native';
+import { StyleSheet, Image, Text, TouchableOpacity } from 'react-native';
 
 function ProductItem({ product, onPress }) {
   return (
